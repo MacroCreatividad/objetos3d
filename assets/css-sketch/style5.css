@@ -1,0 +1,12 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  canvas {
+    display: block;
+  }
+
+  #bloque{
+      border-radius: 15px;
+      background-color: #222222;
+  }

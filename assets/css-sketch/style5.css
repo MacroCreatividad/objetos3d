@@ -7,6 +7,13 @@ html, body {
   }
 
   #bloque{
-      border-radius: 15px;
-      background-color: #222222;
+    border-radius: 15px;
+    background-color: #222222;
+    padding-left: 285px;
+    padding-top: 20px !important;
+    height: 30em;
+  }
+
+  #contenedor{
+    padding: 4em;
   }

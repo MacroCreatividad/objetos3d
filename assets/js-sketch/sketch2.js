@@ -1,14 +1,15 @@
 var cntrlCurva;
 var cntrlPisos;
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  let renderer =createCanvas(400, 400, WEBGL);
+  renderer.parent("bloque");
+  CntrlRot = createSlider(0, PI / 20, 0, 0.01);
+  CntrlRot.parent("bloque");
+  CntrlRot.position(20, 20, WEBGL);
   createEasyCam();
   document.oncontextmenu = () => false;
-  cntrlCurva = createSlider(4.0, 50.0, 20, 1.0);
-  cntrlCurva.position(10, 10);
-  cntrlPisos = createSlider(1.0, 10.0, 1, 1.0);
-  cntrlPisos.position(10, 30);
-    stroke(100);
+  stroke(220);
+  CntrlRot.style('position', 'relative');
 }
 
 function draw() {

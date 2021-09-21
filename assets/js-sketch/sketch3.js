@@ -2,15 +2,16 @@
 var CntrlFrec;
 
 function setup() {
-  createCanvas(400, 400, WEBGL);
-
-  CntrlFrec = createSlider(0.0, 2.0, 0, 0.01);
-  CntrlFrec.position(10, 10);
+  let renderer =createCanvas(400, 400, WEBGL);
+  renderer.parent("bloque");
+  CntrlRot = createSlider(0, PI / 20, 0, 0.01);
+  CntrlRot.parent("bloque");
+  CntrlRot.position(20, 20, WEBGL);
   createEasyCam();
   document.oncontextmenu = () => false;
-    stroke(180);
+  stroke(220);
+  CntrlRot.style('position', 'relative');
 }
-
 function draw() {
   background(256, 0, 100);
   let p = createVector(0, 0);

@@ -2,16 +2,15 @@
 var CntrlFrec;
 var CntrlPetalos;
 function setup() {
-  createCanvas(400, 400, WEBGL);
-
-  CntrlFrec = createSlider(00, 3.0, 0.5, 0.1);
-  CntrlFrec.position(10, 10);
-  CntrlPetalos = createSlider(2, 10, 5, 1);
-  CntrlPetalos.position(10, 30);
-
+  let renderer =createCanvas(400, 400, WEBGL);
+  renderer.parent("bloque");
+  CntrlRot = createSlider(0, PI / 20, 0, 0.01);
+  CntrlRot.parent("bloque");
+  CntrlRot.position(20, 20, WEBGL);
   createEasyCam();
   document.oncontextmenu = () => false;
-  stroke(150);
+  stroke(220);
+  CntrlRot.style('position', 'relative');
 }
 
 function draw() {

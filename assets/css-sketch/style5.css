@@ -7,7 +7,8 @@ html, body {
   }
 
   #bloque{
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     background-color: #222222;
     padding-left: 285px;
     padding-top: 20px !important;
@@ -16,4 +17,15 @@ html, body {
 
   #contenedor{
     padding: 4em;
+  }
+
+  .texto{
+    background-color: #222222;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 30px;
+  }
+  
+  p{
+    color: azure;
   }

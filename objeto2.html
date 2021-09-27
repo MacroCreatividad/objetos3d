@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://freshfork.github.io/p5.EasyCam/p5.easycam.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/style2.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="col-md-12" id="contenedor">
+      <div class="col-md-8 offset-md-2" id="bloque">
+          <script>
+
+            var cntrlCurva;
+            
+            var cntrlPisos;
+            function setup() {
+              let renderer =createCanvas(400, 400, WEBGL);
+              renderer.parent("bloque");
+              CntrlRot = createSlider(0, PI / 20, 0, 0.01);
+              CntrlRot.parent("bloque");
+              CntrlRot.position(20, 20, WEBGL);
+              createEasyCam();
+              document.oncontextmenu = () => false;
+              stroke(220);
+              CntrlRot.style('position', 'relative');
+              renderer.style('border', '15px');
+              renderer.style('border-radius', '15px');
+            }
+
+            function draw() {
+              background(256, 100, 00);
+              let p = createVector(0, 0);
+              let r = 150;
+              let cant = cntrlCurva.value();
+              let pisos = cntrlPisos.value();
+              let altura = 50;
+              translate(0, 200, -200);
+              rotateX(1);
+
+              beginShape(TRIANGLE_STRIP);
+
+              for (let a = 0; a <= TWO_PI + 0.1; a = a + TWO_PI / cant) {
+                vertex(p.x, p.y);
+                vertex(p.x + cos(a) * r, p.y + sin(a) * r);
+              }
+              endShape();
+
+              for (let i = 1; i <= pisos; i = i + 1) {
+                beginShape(TRIANGLE_STRIP);
+
+                for (let a = 0; a <= TWO_PI + 0.1; a = a + TWO_PI / cant) {
+                  let np = createVector(p.x + cos(a) * r, p.y + sin(a) * r);
+
+                  vertex(np.x, np.y, altura * (i - 1));
+                  vertex(np.x, np.y, altura * i);
+                }
+
+                endShape();
+              }
+            }
+
+          </script>
+      </div>
+      <div class="col-md-8 offset-md-2 texto">
+          <p>
+            Una vez creadas las bases, se repite el calculo de las coordenadas  que comentamos antes. esta vez se las proyecta en el Eje z para obtener un anillo, con el cual empieza formarse la tridimensión. 
+
+            Si modificas el control podrás reducir la curva y seguir viendo que está formada por planos. 
+            Cuanto mas chicos sean esos planos, mas curva se ve la figura. 
+            Con el Segundo control podrás crear nuevos anillos, uno arriba del otro y con eso modificar la altura de este objeto.
+            con muy poca matematica( bien aplicada) ya tenemos un objeto que se puede llegar a imprimir en la impresora 3D 
+          </p>
+      </div>
+    </div>
+  </body>
+</html>

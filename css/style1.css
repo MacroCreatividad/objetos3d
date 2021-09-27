@@ -1,0 +1,35 @@
+html, body {
+  background-image: url("../assets/img/fondop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+#bloque{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: rgba(131, 131, 131, 0.425);
+  padding-left: 285px;
+  padding-top: 20px !important;
+  height: 30em;
+}
+
+#contenedor{
+  padding: 4em;
+}
+
+.texto{
+  background-color: rgba(131, 131, 131, 0.425);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 30px;
+}
+
+p{
+  color: azure;
+}
